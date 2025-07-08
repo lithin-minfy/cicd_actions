@@ -10,19 +10,19 @@ iris = load_iris()
 X = pd.DataFrame(iris.data, columns=iris.feature_names)
 y = iris.target
 
-# Split
+# Train/test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Train model
-clf = RandomForestClassifier()
-clf.fit(X_train, y_train)
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
 
-# Predict and evaluate
-y_pred = clf.predict(X_test)
+# Predict and report
+y_pred = model.predict(X_test)
 report = classification_report(y_test, y_pred, target_names=iris.target_names)
 print(report)
 
-# Save metrics
+# Save for CML comment
 with open("metrics.txt", "w") as f:
     f.write("### Iris Classification Report\n")
     f.write("```\n")
