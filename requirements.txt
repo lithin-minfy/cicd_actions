@@ -1,2 +1,4 @@
-pip install pandas scikit-learn numpy==1.24.4 cml
-pip freeze > requirements.txt
+pandas
+scikit-learn
+numpy==1.24.4
+cml
